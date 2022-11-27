@@ -1,47 +1,58 @@
-//programa para la matriz
+//programa para la matriiz
 //suma de la matriz 
 
 #include <stdio.h>
 
-void sumaMatriz(t,a[10][10],b[10][10],c[10][10])
-{
-	for(int i=0,i<t,i++)
-	{
-		for(int j=0,j<t,j++)
-		{
-			c[i][j]=a[i][j]+b[i][j]
-			printf("La suma de las matrices es: %d", &c[i][j];)
-		}
 
-	}
-
-}
-void tecleeMatriz(t,a[10][10],b[10][10])
+int main(void)
 {
-	for(int i=0,i<t,i++)
+	int t=10;
+        int i,j,fil,col;
+        int A[t][t],B[t][t];
+	int C[t][t];
+	printf("Programa que suma matrices\n\n");
+	printf("Introduzca el tamano de las matrices\n\n");
+	printf("Introduzca Filas:");
+       	scanf("%d", &fil);
+	printf("Introduzca Columnas: ");
+       	scanf("%d", &col);
+	printf("Introduca los datos de la Matriz A:\n");
+	for(i=1;i<=fil;i++)
 	{
-		for(int j=0,j<t,j++)
-		{ 
-			printf("Teclee valor %i, %j de la matriz a: ",i,j);
-			scanf("%i",&a[i][j]);
-		}
+	for(j=1;j<=col;j++)
+	{
+	printf("\nIntroduzca la coordenada (%d,%d): ",i,j);
+       	scanf("%d", &A[i][j]);
 	}
-	 	for(int i=0,i<t,i++)
-		{
-			for(int j=0,j<t,j++)
-			{
-		printf("Teclee valor %i,%j de la matriz b: ",i,j);
-		scanf("%i",&b[i][j]);
-			}
-		}	
 }
 
-int main()
-{
-	int t,a[10][10],b[10][10];
-	printf("Programa para sumar dos matrices\n");
-	printf("Teclea el tamaño de la matriz: ");
-	scanf("%i", &t);
-	tecleeMatriz(t,a[10][10],b[10][10]);
-	sumaMatriz(t,a[10][10],b[10][10],c[10][10]);
+	printf("Introduca los datos de la Matriz B:\n");
+	for(i=1;i<=fil;i++)
+	{
+	for(j=1;j<=col;j++)
+	{
+	printf("\nIntroduzca la coordenada (%i,%i): ",i,j);
+       	scanf("%d", &B[i][j]);
+	}
+}
+
+	for(i=1;i<=fil;i++)
+	{
+	for(j=1;j<=col;j++)
+	C[i][j]= A[i][j] + B[i][j]; 
+}
+
+	printf("\n\n Resultado es:");
+	printf("\n\n");
+	for(i=1;i<=fil;i++){
+	printf("\n\n");
+	{
+	printf("\n\t\t");
+	{
+	for(j=1;j<=col;j++)
+	printf("%6d",C[i][j]);
+	}
+	}
+}
+return 0;
 }

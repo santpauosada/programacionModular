@@ -1,18 +1,28 @@
-// Programa de menu
 
-#include<stdio.h>
-#include <stdlib.h>
-#include<math.h>
+/*autor:Santillan Paulina
+ *programa menu, donde se encuentran subprogramas 
+ *calcular el area del cuadrado,trapecio, rectangulo
+ *calcular salario,factorial, angulo y hipotenusa
+ *conversiones Celsius a Fahrenheit, Fahrenheit a Celsius,  Kelvin a Celsius,Celsius a Kelvin,Fahrenheit a Kelvin, Kelvin a Fahrenheit
+ *Matriz suma, multiplicacion y traspuesta 
+ * */
 
 
-#define true 1
-#define false 0
+//librerias
+#include<stdio.h> //archivos de cabecera 
+#include <stdlib.h> //agrupada en 3 categorias basicas aritmeticas, numeros aleatorios, vonversion de cadenas 
+#include<math.h>   //funciones matematicas comunes
 
+
+#define true 1 //repetir 
+#define false 0 //salir del menu
+
+//programa principal
 int main()
 {
 		char repetir = true;
 		int opc;
-
+//se muestra menu
 		do 
 		{
 		printf("\n\nMENU\n\n");
@@ -46,6 +56,9 @@ int main()
 
 switch(opc)
 {
+
+//programa para calcular el area de un triangulo rectangulo; un angulo de 90° y todos los lados diferentes.
+//datos tipo int y float 
 	case 1: 
 	int base, alt;
 	float a;
@@ -53,20 +66,22 @@ switch(opc)
 	scanf("%d", &base);
 	printf("Escribe la altura: ");
 	scanf("%d", &alt);
-	a= base*alt/2;
+	a= base*alt/2; //calculos 
 	printf("El area del triangulo es: %f",a);
 	break;
-	
+//programa para calcular el area del rectangulo
+//dato tipo int 
 	case 2:
  	int rec,b1,h1;
 	printf("Escribe la base de rectangulo: ");
 	scanf("%d", &b1);
 	printf("Escribe la altura del rectangulo: ");
 	scanf("%d", &h1);
-	rec = b1*h1;
+	rec = b1*h1; //calculos 
 	printf("El area del rectangulo es: %d", rec);
 	break;
-
+//programa para calcular el area del trapecio
+//datos tipo int 
 	case 3:
  	int B1,b2,h2,trap1,trap;
 	printf("La base mayor es:");
@@ -75,27 +90,30 @@ switch(opc)
 	scanf("%d", &b2);
 	printf("Ingrese la altura:");
 	scanf("%d", &h2);
-	trap = B1+b2/2;
-	trap1 = trap*h2;
+	trap = B1+b2/2;  //calculos
+	trap1 = trap*h2; //calculos
 	printf("El area del trapecio es: %d ", trap1);
 	break;
-
+//calcular el area de un cuadrado mediante uno de sus lados
+//datos tipo int  
 	case 4:
 	int lado, area;
 	printf("Escribe el lado del cuadrado: ");
 	scanf("%d", &lado);
-	area = lado*lado;
+	area = lado*lado; //calculos 
 	printf("El area del cuadrado es: %d", area);
 	break;
-
+//calcular los angulos 
+//datos tipo float 
 	case 5:
 	float an1,an2,an3;
 	printf("Escribe el valor de los dos angulos: ");
 	scanf("%f%f", &an1,&an2);
-	an3 = 180-(an1+an2);
+	an3 = 180-(an1+an2); //calculos 
 	printf("El tercer angulo mide: %f",an3);
 	break;
-
+//calcular la hipotenusa
+//datos tipo int y float 
 	case 6:
 	int co, ca;
 	float h3;
@@ -103,10 +121,13 @@ switch(opc)
 	scanf("%d", &ca);
 	printf("Escribe la longitud del cateto opuesto: ");
 	scanf("%d", &co);
-	h3 = sqrt(co*co+ca*ca);
+	h3 = sqrt(co*co+ca*ca);  //calculos  sqrt = raiz cuadrada
 	printf("La hipotenusa mide: %f",h3);
 	break;
-
+//Calculo de salario neto a partir de las horas laboradas el costo por 
+//hora y la tasa de IVA agregando del 16% sobre el salario y 12% de 
+//IVA retenido. si el salario neto es menor a $10,000 MXN agregar el//un bono del 5%.
+//datos tipo int y float
 	case 7:
 
 	float salariobono2,salariobono;
@@ -116,12 +137,13 @@ switch(opc)
 	scanf("%d", &salario);
 	printf("Ingresa horas laboradas:");
 	scanf("%d", &hora);
-	salarioxhora = salario*hora;
-	iva = salarioxhora/100*16;
-	ivares = salarioxhora+iva;
-	iva2 = ivares/100*12;
-	salarioneto1= ivares-iva2;
-	salarioneto =  salarioneto1*30;
+	salarioxhora = salario*hora; //calculos
+	iva = salarioxhora/100*16;   //
+	ivares = salarioxhora+iva;  // 
+	iva2 = ivares/100*12;       //
+	salarioneto1= ivares-iva2;   //
+	salarioneto =  salarioneto1*30; //
+// si el salario neto es menor a 10000 agregar bono de 5%
 
 	if(10000 < salarioneto){
 	
@@ -129,13 +151,14 @@ switch(opc)
 	salariobono2 = salarioneto + salariobono;
 	printf("El salario neto es: %f MXN", salariobono2);
 }
+//si no 
 
 	else
 {
 	printf("El salario neto es: %f MNX", salarioneto);
 }
 	break;
-
+//programa para calcular factorial 
 	case 8:
 	float factorial(int n)
 {
@@ -154,7 +177,7 @@ switch(opc)
 	printf("\n El factorial es=%d\n",fact);
 }
 	break;
-
+//conversiones de temperaruraS 
 	case 9:
         int  celsius1;
         float temperatura1;
@@ -215,9 +238,10 @@ switch(opc)
         printf("convertir de ºK a ºF *FAHRENHEIT*: %f", temperatura6);
 
         break;
-
+// MULTIPLICACION DE MATRICES 
+// un rango de 2x2  hasta 10x10 
 	case 15:
-	
+{
         int i,j,fil,col;
         int Ama[10][10],Bma[10][10];
 	int Cma[10][10];
@@ -263,11 +287,12 @@ switch(opc)
 	}
    }
 }
-		
+}		
 	break;
 
 
-
+//multiplicacion de matrices 
+//de 2x2 
 	case 16:
 	{
 
@@ -313,7 +338,7 @@ switch(opc)
 
 
         break;
-
+//matriz traspuesta  de 3x3 
 	case 17:
         {
         int matriz[3][3], x,y;
@@ -353,11 +378,12 @@ switch(opc)
 }
 
         break;
-	
+	// cuando la opcion es 0 termina el programa 
 	case 0:
 	 repetir = false;
 	 break;
  	}
+//repite el programa una vez finalizado lo que se estaba realizando 
 } while(repetir);
 
 return 0; 
